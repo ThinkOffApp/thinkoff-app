@@ -12,7 +12,7 @@ import {
 export type { User };
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA9wln0VT7nyj1ECTObThnzkpXwPma-ZVg',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: 'nifty-garden-474509-b4.firebaseapp.com',
   projectId: 'nifty-garden-474509-b4',
   storageBucket: 'nifty-garden-474509-b4.firebasestorage.app',
