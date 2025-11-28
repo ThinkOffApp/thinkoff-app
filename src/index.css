@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  /* ThinkOff Dark Theme Colors */
+  --bg-dark: #0A0A0A;
+  --bg-card: #1E1E1E;
+  --bg-card-hover: #252525;
+  --bg-surface: #121212;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0B0B0;
+
+  /* Accents */
+  --primary: #FF00FF;
+  /* Neon Fuchsia */
+  --primary-dark: #C71585;
+  /* Deep Fuchsia */
+  --accent-hotpink: #FF69B4;
+  --accent-lime: #32CD32;
+  /* Lime Green */
+  --accent-yellow: #FFD700;
+  /* Gold/Yellow */
+  --accent-orange: #FFA500;
+  /* Orange */
+  --accent-gradient: linear-gradient(135deg, #FF00FF 0%, #C71585 100%);
+
+  /* Evaluation Colors */
+  --tertiary: #F0ABFC;
+  --tertiary-container: #4A1D6B;
+  --on-tertiary-container: #FAE8FF;
+
+  /* Badges */
+  --rank-gold: #FCD34D;
+  --rank-silver: #D1D5DB;
+  --rank-bronze: #F59E0B;
+
+  /* UI Effects */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-radius: 24px;
+}
+
+/* Light Mode - Optional fallback, but we enforce dark mostly */
+:root.light {
+  --bg-dark: #F5F5F5;
+  --bg-card: #FFFFFF;
+  --text-primary: #121212;
+  --text-secondary: #666666;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Bubbles */
+.message-bubble {
+  max-width: 85%;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  line-height: 1.6;
+}
+
+.message-user {
+  background: var(--accent-gradient);
+  color: white;
+  margin-left: auto;
+  border-radius: 20px 4px 20px 20px;
+}
+
+.message-ai {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  margin-right: auto;
+  border-radius: 4px 20px 20px 20px;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.5);
+  }
+}
+
+@keyframes neon-pulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 0, 255, 0.6));
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-neon-pulse {
+  animation: neon-pulse 2s infinite ease-in-out;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.animate-neon-pulse:hover {
+  animation: none;
+  filter: drop-shadow(0 0 25px rgba(255, 0, 255, 1)) drop-shadow(0 0 50px rgba(255, 0, 255, 0.8));
+  transform: scale(1.1);
+}
+
+/* Markdown Styles */
+.markdown-content strong {
+  color: var(--accent-hotpink);
+  font-weight: 700;
+}
+
+.markdown-content code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.markdown-content pre {
+  background: #111;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  border: 1px solid #333;
+  margin: 12px 0;
+}
